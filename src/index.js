@@ -9,20 +9,13 @@ const api = async () => {
 
 api().then((data) => data.map(({id, symbol, name, ...props}, i) => {
     $(".root").append(() => {
-        return "<tr><td>" + id + "</td>" + "<td>" + symbol + "</td>" + "<td>" + name + "</td></tr>";
+        const elem = $("<tr><td>" + id + "</td>" + "<td>" + symbol + "</td>" + "<td>" + name + "</td></tr>");
+        if (i < 5) {
+            elem.css("background", "blue")
+        }
+        if (symbol === "usdt" ) {
+            elem.css("background", "green")
+        }
+        return elem
     });
-    if (i < 5) {
-        $("td").css("background", "blue")
-    }
-
-    if (symbol === "usdt" ) {
-        $("td").css("background", "blue")
-    }
 }))
-
-
-
-// Показываем на экране таблицу с полями "id", "symbol", "name".
-
-// $(".root").append($('<td>', {id: index, alt: 'nft'}).clone())
-
