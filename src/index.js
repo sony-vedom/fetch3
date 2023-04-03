@@ -12,6 +12,7 @@ api().then((data) => data.map(({id, symbol, name, ...props}, i) => {
         const elem = $("<tr><td>" + id + "</td>" + "<td>" + symbol + "</td>" + "<td>" + name + "</td></tr>");
         if (i < 5) {
             elem.css("background", "blue")
+            elem.css("color", "white")
         }
         if (symbol === "usdt" ) {
             elem.css("background", "green")
