@@ -8,9 +8,6 @@ if (process.env.NODE_ENV === "production") {
 }
 module.exports = {
     mode: mode,
-    // entry: {
-    //     scripts: './src/index.js',
-    // },
     output: {
         assetModuleFilename: "assets/[hash][ext][query]",
         filename: "[name].[contenthash].js",
