@@ -7,11 +7,16 @@ const api = async () => {
     return await promise.json();
 }
 
-api().then((data) => data.map((el, i) => {
-    const elem = "<tr><td>" + el.id + "</td>" + "<td>" + el.symbol + "</td>" + "<td>" + el.name + "</td></tr>"
-    $(".root").append(elem);
+api().then((data) => data.map(({id, symbol, name, ...props}, i) => {
+    $(".root").append(() => {
+        return "<tr><td>" + id + "</td>" + "<td>" + symbol + "</td>" + "<td>" + name + "</td></tr>";
+    });
     if (i < 5) {
-        $(elem).css("background", "blue")
+        $("td").css("background", "blue")
+    }
+
+    if (symbol === "usdt" ) {
+        $("td").css("background", "blue")
     }
 }))
 
